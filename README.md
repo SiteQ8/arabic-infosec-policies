@@ -87,9 +87,9 @@ A comprehensive collection of information security policies in Arabic, developed
 │   ├── 📄 ai_governance_policy.md
 │   └── 📄 zero_trust_policy.md
 ├── 📁 templates/
-│   ├── 📄 policy_template.docx
+│   ├── 📄 policy_template.md
 │   ├── 📄 risk_assessment_template.xlsx
-│   └── 📄 compliance_checklist.pdf
+│   └── 📄 compliance_checklist.md
 ├── 📁 docs/
 │   ├── 📄 implementation_guide.md
 │   ├── 📄 customization_guide.md
