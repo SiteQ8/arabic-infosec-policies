@@ -39,6 +39,10 @@ A collection of information security policies in Arabic, developed according to 
 - **CIS Controls v8**
 - **Zero Trust Architecture**
 - **AI Governance Frameworks**
+- **Central Bank Of Kuwait**
+- **PCI DSS**
+- **SWIFT CSP**
+
 
 ## 🏢 الجمهور المستهدف / Target Audience
 
