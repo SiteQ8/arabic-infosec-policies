@@ -9,7 +9,7 @@
 
 مجموعة شاملة من سياسات أمن المعلومات باللغة العربية وفقاً لأحدث المعايير والأطر العالمية لعام 2025، هذه السياسات قابلة للتخصيص والتطبيق في أي مؤسسة عربية.
 
-A comprehensive collection of information security policies in Arabic, developed according to the latest global standards for 2025. These policies are customizable and applicable for any Arabic organization.
+A collection of information security policies in Arabic, developed according to the latest global standards for 2025. These policies are customizable and applicable for any Arabic organization.
 
 ## 📋 المحتويات / Contents
 
