@@ -111,6 +111,12 @@ A comprehensive collection of information security policies in Arabic, developed
 | AI Governance | 100% | ✅ مكتملة |
 | GDPR | 90% | ⚠️ جزئية |
 | SOC 2 | 85% | ⚠️ جزئية |
+| CBK | 60% | ⚠️ جزئية |
+| PCI DSS | 65% | ⚠️ جزئية |
+| SWIFT CSP | 30% | ⚠️ جزئية |
+
+
+
 
 ## 🔄 دورة التحديث / Update Cycle
 
