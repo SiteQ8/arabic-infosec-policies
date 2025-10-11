@@ -203,7 +203,7 @@ git push origin feature/amazing-feature
 
 ---
 
-شكراً لاهتمامكم بتطوير سياسات الأمن المعلوماتي العربية! 
+شكراً لاهتمامكم بتطوير سياسات أمن المعلومات العربية! 
 Thank you for your interest in developing Arabic Information Security Policies!
 
 **معاً نحو أمان رقمي أفضل / Together Towards Better Digital Security**
