@@ -204,9 +204,9 @@ A collection of information security policies in Arabic, developed according to 
 - [SANS Institute](https://www.sans.org/)
 
 ### أدوات مساعدة:
-- [Risk Assessment Tools](./tools/risk-assessment.md)
-- [Compliance Checklists](./tools/compliance.md)
-- [Training Materials](./tools/training.md)
+- [Risk Assessment Tools](./tools/risk-assessment.md) **pending**
+- [Compliance Checklists](./tools/compliance.md) **pending**
+- [Training Materials](./tools/training.md) **pending**
 
 ## 📄 الترخيص / License
 
