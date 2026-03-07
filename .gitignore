@@ -1,0 +1,7 @@
+node_modules/
+customized-policies/
+*.log
+.DS_Store
+.env
+dist/
+coverage/

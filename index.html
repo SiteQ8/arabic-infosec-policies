@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسات أمن المعلومات بالعربية | Arabic InfoSec Policies</title>
+    <meta name="description" content="مجموعة شاملة من سياسات أمن المعلومات باللغة العربية وفقاً لأحدث المعايير العالمية">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2235;
+            --bg-card-hover: #1f2a40;
+            --accent-gold: #d4a843;
+            --accent-gold-light: #f0d078;
+            --accent-cyan: #06b6d4;
+            --accent-cyan-glow: rgba(6, 182, 212, 0.3);
+            --accent-emerald: #10b981;
+            --accent-red: #ef4444;
+            --accent-purple: #a855f7;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border-color: rgba(212, 168, 67, 0.15);
+            --border-glow: rgba(212, 168, 67, 0.4);
+            --glass: rgba(26, 34, 53, 0.85);
+            --font-heading: 'Cairo', sans-serif;
+            --font-body: 'Tajawal', sans-serif;
+            --font-mono: 'IBM Plex Sans Arabic', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        /* === ANIMATED BACKGROUND === */
+        .cyber-bg {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .cyber-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background:
+                radial-gradient(ellipse 600px 600px at 20% 30%, rgba(6, 182, 212, 0.06) 0%, transparent 70%),
+                radial-gradient(ellipse 800px 800px at 80% 60%, rgba(212, 168, 67, 0.04) 0%, transparent 70%),
+                radial-gradient(ellipse 400px 400px at 50% 80%, rgba(168, 85, 247, 0.03) 0%, transparent 70%);
+            animation: bgPulse 20s ease-in-out infinite;
+        }
+        @keyframes bgPulse {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-2%, 1%) rotate(1deg); }
+            66% { transform: translate(1%, -1%) rotate(-0.5deg); }
+        }
+
+        /* Grid lines overlay */
+        .grid-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 0;
+            background-image:
+                linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        /* === NAVIGATION === */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0 2rem;
+            background: rgba(10, 14, 26, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+        }
+        .navbar.scrolled {
+            padding: 0 2rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+        }
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .nav-logo .shield {
+            width: 42px; height: 42px;
+            position: relative;
+        }
+        .nav-logo .shield svg {
+            width: 100%; height: 100%;
+            filter: drop-shadow(0 0 8px var(--accent-gold));
+        }
+        .nav-logo-text {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--accent-gold);
+            letter-spacing: -0.02em;
+        }
+        .nav-logo-sub {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-family: var(--font-heading);
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-gold);
+            background: rgba(212, 168, 67, 0.08);
+        }
+        .nav-github {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0.5rem 1.2rem !important;
+            border: 1px solid var(--border-color) !important;
+            border-radius: 10px !important;
+        }
+        .nav-github:hover {
+            border-color: var(--accent-gold) !important;
+            box-shadow: 0 0 15px rgba(212, 168, 67, 0.15);
+        }
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* === HERO === */
+        .hero {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 2rem 80px;
+            text-align: center;
+        }
+        .hero-content {
+            max-width: 900px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.25);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            margin-bottom: 2rem;
+            animation: fadeUp 0.8s ease-out;
+        }
+        .hero-badge .dot {
+            width: 8px; height: 8px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.2rem, 5.5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.25;
+            margin-bottom: 1.5rem;
+            animation: fadeUp 0.8s ease-out 0.1s both;
+        }
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 50%, var(--accent-gold) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 200% center; }
+        }
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            line-height: 2;
+            animation: fadeUp 0.8s ease-out 0.2s both;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeUp 0.8s ease-out 0.3s both;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), #c49830);
+            color: #0a0e1a;
+            box-shadow: 0 4px 20px rgba(212, 168, 67, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 168, 67, 0.5);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent-gold);
+            background: rgba(212, 168, 67, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            animation: fadeUp 0.8s ease-out 0.5s both;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat-num {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+        }
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* === SECTIONS === */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 5rem 2rem;
+        }
+        .section-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+        .section-tag::before, .section-tag::after {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: var(--accent-cyan);
+            opacity: 0.5;
+        }
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        /* === STANDARDS RIBBON === */
+        .standards-section {
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(17, 24, 39, 0.5);
+        }
+        .standards-track {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .standard-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.55;
+            transition: all 0.3s;
+            cursor: default;
+        }
+        .standard-item:hover {
+            opacity: 1;
+            transform: scale(1.08);
+        }
+        .standard-item .icon {
+            font-size: 1.8rem;
+        }
+        .standard-item .name {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+        }
+
+        /* === POLICIES GRID === */
+        .policies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+        .policy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .policy-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan));
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+        }
+        .policy-card:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .policy-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-glow);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 30px rgba(212, 168, 67, 0.06);
+        }
+        .policy-icon {
+            width: 56px; height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+        }
+        .policy-icon.gold { background: rgba(212, 168, 67, 0.12); }
+        .policy-icon.cyan { background: rgba(6, 182, 212, 0.12); }
+        .policy-icon.purple { background: rgba(168, 85, 247, 0.12); }
+        .policy-icon.emerald { background: rgba(16, 185, 129, 0.12); }
+        .policy-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+        .policy-card p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+        .policy-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .policy-tag {
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            font-family: var(--font-heading);
+            background: rgba(6, 182, 212, 0.08);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.15);
+        }
+
+        /* === COMPLIANCE MATRIX === */
+        .compliance-table-wrap {
+            overflow-x: auto;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+        }
+        .compliance-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+        }
+        .compliance-table thead {
+            background: rgba(212, 168, 67, 0.08);
+        }
+        .compliance-table th {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            padding: 16px 20px;
+            text-align: right;
+            color: var(--accent-gold);
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
+        }
+        .compliance-table td {
+            padding: 14px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            vertical-align: middle;
+        }
+        .compliance-table tbody tr {
+            transition: background 0.2s;
+        }
+        .compliance-table tbody tr:hover {
+            background: rgba(212, 168, 67, 0.03);
+        }
+        .progress-bar {
+            width: 120px;
+            height: 8px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 10px;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1s ease-out;
+        }
+        .progress-fill.high { background: linear-gradient(90deg, var(--accent-emerald), #34d399); }
+        .progress-fill.medium { background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-light)); }
+        .progress-fill.low { background: linear-gradient(90deg, var(--accent-red), #f87171); }
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            font-family: var(--font-heading);
+        }
+        .status-badge.complete {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-emerald);
+        }
+        .status-badge.partial {
+            background: rgba(212, 168, 67, 0.1);
+            color: var(--accent-gold);
+        }
+
+        /* === FEATURES SECTION === */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .feature-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-3px);
+        }
+        .feature-num {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+        .feature-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        /* === EXAMPLES SECTION === */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .example-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .example-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--border-glow);
+        }
+        .example-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .example-header .icon {
+            font-size: 2rem;
+        }
+        .example-header h3 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .example-body {
+            padding: 1.5rem 2rem;
+        }
+        .example-body ul {
+            list-style: none;
+        }
+        .example-body li {
+            padding: 6px 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .example-body li::before {
+            content: '◆';
+            color: var(--accent-gold);
+            font-size: 0.5rem;
+        }
+
+        /* === SEARCH / VIEWER MODAL === */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        .modal-overlay.show {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .modal-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: slideUp 0.3s ease;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .modal-header h2 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        .modal-close {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .modal-close:hover {
+            color: var(--accent-red);
+            border-color: var(--accent-red);
+        }
+        .modal-body {
+            padding: 2rem;
+            overflow-y: auto;
+            flex: 1;
+            line-height: 2;
+        }
+        .modal-body h1, .modal-body h2, .modal-body h3 {
+            font-family: var(--font-heading);
+            color: var(--accent-gold);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .modal-body h1 { font-size: 1.4rem; }
+        .modal-body h2 { font-size: 1.2rem; }
+        .modal-body h3 { font-size: 1.05rem; }
+        .modal-body p, .modal-body li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .modal-body ul {
+            padding-right: 1.5rem;
+            margin: 0.5rem 0;
+        }
+        .modal-body hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 1.5rem 0;
+        }
+
+        /* === SEARCH BOX === */
+        .search-section {
+            padding: 3rem 2rem;
+        }
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 18px 24px;
+            padding-right: 54px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+        .search-input:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 20px rgba(212, 168, 67, 0.1);
+        }
+        .search-icon {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+        .search-results {
+            margin-top: 1rem;
+        }
+        .search-result-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.6rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: none;
+        }
+        .search-result-item.visible {
+            display: block;
+            animation: fadeUp 0.3s ease;
+        }
+        .search-result-item:hover {
+            border-color: var(--accent-gold);
+            background: var(--bg-card-hover);
+        }
+        .search-result-item h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            margin-bottom: 3px;
+            font-size: 0.95rem;
+        }
+        .search-result-item p {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+        }
+        mark {
+            background: rgba(212, 168, 67, 0.25);
+            color: var(--accent-gold-light);
+            padding: 0 3px;
+            border-radius: 3px;
+        }
+
+        /* === QUICK START === */
+        .quickstart {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .quickstart-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+        .quickstart-tab {
+            padding: 14px 24px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            border: none;
+            background: none;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .quickstart-tab.active {
+            color: var(--accent-gold);
+            border-bottom-color: var(--accent-gold);
+            background: rgba(212, 168, 67, 0.04);
+        }
+        .quickstart-tab:hover {
+            color: var(--text-primary);
+        }
+        .quickstart-panel {
+            display: none;
+            padding: 2rem;
+        }
+        .quickstart-panel.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        .code-block {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-family: 'IBM Plex Sans Arabic', monospace;
+            font-size: 0.88rem;
+            line-height: 2;
+            color: var(--accent-cyan);
+            overflow-x: auto;
+            direction: ltr;
+            text-align: left;
+            position: relative;
+            margin-top: 1rem;
+        }
+        .code-block .comment {
+            color: var(--text-muted);
+        }
+        .code-block .string {
+            color: var(--accent-emerald);
+        }
+        .code-block .keyword {
+            color: var(--accent-purple);
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .copy-btn:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+        }
+
+        /* === FOOTER === */
+        .footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            background: rgba(10, 14, 26, 0.9);
+        }
+        .footer-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .footer-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero-stats {
+                gap: 1.5rem;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0; right: 0;
+                background: rgba(10, 14, 26, 0.98);
+                flex-direction: column;
+                padding: 1rem;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+        }
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .policies-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+
+        /* === SCROLL REVEAL === */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: rgba(212, 168, 67, 0.3); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(212, 168, 67, 0.5); }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="cyber-bg"></div>
+    <div class="grid-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <div class="shield">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 4L6 12v12c0 11 8 18 18 22 10-4 18-11 18-22V12L24 4z" fill="none" stroke="#d4a843" stroke-width="2.5"/>
+                        <path d="M24 8L10 14v10c0 9 6 15 14 18 8-3 14-9 14-18V14L24 8z" fill="rgba(212,168,67,0.08)" stroke="rgba(212,168,67,0.3)" stroke-width="1"/>
+                        <path d="M20 24l4 4 8-8" stroke="#d4a843" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="nav-logo-text">سياسات أمن المعلومات</div>
+                    <div class="nav-logo-sub">Arabic InfoSec Policies</div>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#policies" class="active">السياسات</a></li>
+                <li><a href="#compliance">الامتثال</a></li>
+                <li><a href="#examples">الأمثلة</a></li>
+                <li><a href="#quickstart">البدء السريع</a></li>
+                <li><a href="https://github.com/SiteQ8/arabic-infosec-policies" target="_blank" class="nav-github">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                الإصدار 2.0 — مارس 2026
+            </div>
+            <h1>
+                <span class="highlight">سياسات أمن المعلومات</span><br>
+                الأولى من نوعها بالعربية
+            </h1>
+            <p class="hero-desc">
+                أكبر مجموعة مفتوحة المصدر من سياسات وأطر أمن المعلومات باللغة العربية. متوافقة مع أحدث المعايير العالمية وجاهزة للتطبيق في مؤسستك فوراً.
+            </p>
+            <div class="hero-actions">
+                <a href="#policies" class="btn btn-primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+                    استعرض السياسات
+                </a>
+                <a href="#quickstart" class="btn btn-secondary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                    دليل البدء السريع
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-num" id="counter1">4</div>
+                    <div class="hero-stat-label">سياسات أساسية</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num" id="counter2">8+</div>
+                    <div class="hero-stat-label">معايير مدعومة</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num" id="counter3">3</div>
+                    <div class="hero-stat-label">أمثلة قطاعية</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num" id="counter4">5+</div>
+                    <div class="hero-stat-label">قوالب جاهزة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standards Ribbon -->
+    <div class="standards-section">
+        <div class="standards-track">
+            <div class="standard-item"><span class="icon">🏛️</span><span class="name">ISO 27001:2022</span></div>
+            <div class="standard-item"><span class="icon">🔒</span><span class="name">NIST CSF 2.0</span></div>
+            <div class="standard-item"><span class="icon">🛡️</span><span class="name">CIS Controls v8</span></div>
+            <div class="standard-item"><span class="icon">⚡</span><span class="name">Zero Trust</span></div>
+            <div class="standard-item"><span class="icon">🤖</span><span class="name">AI Governance</span></div>
+            <div class="standard-item"><span class="icon">🏦</span><span class="name">بنك الكويت المركزي</span></div>
+            <div class="standard-item"><span class="icon">💳</span><span class="name">PCI DSS</span></div>
+            <div class="standard-item"><span class="icon">🌐</span><span class="name">SWIFT CSP</span></div>
+        </div>
+    </div>
+
+    <!-- Search Section -->
+    <section class="search-section" id="search">
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="🔍 ابحث في السياسات والقوالب والأمثلة..." oninput="handleSearch(this.value)">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </section>
+
+    <!-- Policies Section -->
+    <section id="policies">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-tag">السياسات الأساسية</div>
+                <h2 class="section-title">سياسات شاملة جاهزة للتطبيق</h2>
+                <p class="section-subtitle">أربع سياسات رئيسية تغطي جميع جوانب أمن المعلومات الحديثة بما يتوافق مع أعلى المعايير العالمية</p>
+            </div>
+            <div class="policies-grid">
+                <div class="policy-card reveal" onclick="openPolicy('comprehensive')">
+                    <div class="policy-icon gold">🔐</div>
+                    <h3>السياسة الشاملة لأمن المعلومات</h3>
+                    <p>سياسة رئيسية تغطي 15 قسماً من ضوابط أمن المعلومات. تشمل إدارة الأصول، والتحكم في الوصول، وأمن الشبكات، والاستجابة للحوادث، واستمرارية الأعمال.</p>
+                    <div class="policy-tags">
+                        <span class="policy-tag">ISO 27001</span>
+                        <span class="policy-tag">NIST CSF</span>
+                        <span class="policy-tag">15 قسم</span>
+                    </div>
+                </div>
+                <div class="policy-card reveal" onclick="openPolicy('access_control')">
+                    <div class="policy-icon cyan">🔑</div>
+                    <h3>سياسة التحكم في الوصول</h3>
+                    <p>إدارة متقدمة للهوية والوصول تشمل المصادقة متعددة العوامل، ومبدأ الامتياز الأقل، وإدارة الحسابات المميزة، ومراقبة الوصول.</p>
+                    <div class="policy-tags">
+                        <span class="policy-tag">IAM</span>
+                        <span class="policy-tag">MFA</span>
+                        <span class="policy-tag">PAM</span>
+                    </div>
+                </div>
+                <div class="policy-card reveal" onclick="openPolicy('ai_governance')">
+                    <div class="policy-icon purple">🤖</div>
+                    <h3>سياسة حوكمة الذكاء الاصطناعي</h3>
+                    <p>حوكمة شاملة لأنظمة الذكاء الاصطناعي تشمل إدارة المخاطر، والمتطلبات الأخلاقية، وحماية البيانات، وأمان النماذج، والمراقبة المستمرة.</p>
+                    <div class="policy-tags">
+                        <span class="policy-tag">AI Ethics</span>
+                        <span class="policy-tag">ML Security</span>
+                        <span class="policy-tag">NIST AI RMF</span>
+                    </div>
+                </div>
+                <div class="policy-card reveal" onclick="openPolicy('zero_trust')">
+                    <div class="policy-icon emerald">🛡️</div>
+                    <h3>سياسة الثقة الصفرية</h3>
+                    <p>تطبيق نموذج Zero Trust الشامل. يشمل التحقق المستمر، وتقسيم الشبكات الدقيق، وأمان الأجهزة، وحماية البيانات المتقدمة.</p>
+                    <div class="policy-tags">
+                        <span class="policy-tag">Zero Trust</span>
+                        <span class="policy-tag">Micro-Segmentation</span>
+                        <span class="policy-tag">SASE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Numbers Section -->
+    <section>
+        <div class="section-container">
+            <div class="features-grid reveal">
+                <div class="feature-card">
+                    <div class="feature-num">100%</div>
+                    <div class="feature-label">عربي بالكامل مع مصطلحات تقنية دقيقة</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-num">8+</div>
+                    <div class="feature-label">أطر ومعايير عالمية مدعومة</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-num">MIT</div>
+                    <div class="feature-label">ترخيص مفتوح — استخدم وعدّل بحرية</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance Matrix Section -->
+    <section id="compliance">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-tag">مصفوفة الامتثال</div>
+                <h2 class="section-title">تغطية شاملة للمعايير العالمية</h2>
+                <p class="section-subtitle">نسبة تغطية كل معيار عالمي في سياساتنا</p>
+            </div>
+            <div class="compliance-table-wrap reveal">
+                <table class="compliance-table">
+                    <thead>
+                        <tr>
+                            <th>المعيار</th>
+                            <th>التغطية</th>
+                            <th>الحالة</th>
+                            <th>ملاحظات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>ISO/IEC 27001:2022</strong></td>
+                            <td>
+                                100%
+                                <div class="progress-bar"><div class="progress-fill high" style="width:100%"></div></div>
+                            </td>
+                            <td><span class="status-badge complete">✅ مكتملة</span></td>
+                            <td>تغطية كاملة لجميع الضوابط</td>
+                        </tr>
+                        <tr>
+                            <td><strong>NIST CSF 2.0</strong></td>
+                            <td>
+                                100%
+                                <div class="progress-bar"><div class="progress-fill high" style="width:100%"></div></div>
+                            </td>
+                            <td><span class="status-badge complete">✅ مكتملة</span></td>
+                            <td>جميع الفئات والوظائف الأساسية</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CIS Controls v8</strong></td>
+                            <td>
+                                95%
+                                <div class="progress-bar"><div class="progress-fill high" style="width:95%"></div></div>
+                            </td>
+                            <td><span class="status-badge complete">✅ مكتملة</span></td>
+                            <td>18 ضابط رئيسي مغطى</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Zero Trust Architecture</strong></td>
+                            <td>
+                                100%
+                                <div class="progress-bar"><div class="progress-fill high" style="width:100%"></div></div>
+                            </td>
+                            <td><span class="status-badge complete">✅ مكتملة</span></td>
+                            <td>سياسة مخصصة كاملة</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AI Governance</strong></td>
+                            <td>
+                                100%
+                                <div class="progress-bar"><div class="progress-fill high" style="width:100%"></div></div>
+                            </td>
+                            <td><span class="status-badge complete">✅ مكتملة</span></td>
+                            <td>حوكمة شاملة للذكاء الاصطناعي</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GDPR</strong></td>
+                            <td>
+                                90%
+                                <div class="progress-bar"><div class="progress-fill medium" style="width:90%"></div></div>
+                            </td>
+                            <td><span class="status-badge partial">⚠️ جزئية</span></td>
+                            <td>تغطية واسعة مع تحديثات قادمة</td>
+                        </tr>
+                        <tr>
+                            <td><strong>بنك الكويت المركزي (CBK)</strong></td>
+                            <td>
+                                60%
+                                <div class="progress-bar"><div class="progress-fill medium" style="width:60%"></div></div>
+                            </td>
+                            <td><span class="status-badge partial">⚠️ جزئية</span></td>
+                            <td>CORF v1.0 — قيد التطوير</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PCI DSS</strong></td>
+                            <td>
+                                65%
+                                <div class="progress-bar"><div class="progress-fill medium" style="width:65%"></div></div>
+                            </td>
+                            <td><span class="status-badge partial">⚠️ جزئية</span></td>
+                            <td>ضوابط بطاقات الدفع الرئيسية</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SWIFT CSP</strong></td>
+                            <td>
+                                30%
+                                <div class="progress-bar"><div class="progress-fill low" style="width:30%"></div></div>
+                            </td>
+                            <td><span class="status-badge partial">⚠️ جزئية</span></td>
+                            <td>ضوابط التحويلات المالية — التوسيع مخطط</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sector Examples Section -->
+    <section id="examples">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-tag">أمثلة تطبيقية</div>
+                <h2 class="section-title">أمثلة جاهزة حسب القطاع</h2>
+                <p class="section-subtitle">أمثلة تفصيلية لتطبيق السياسات في القطاعات المختلفة مع تخصيصات مناسبة لكل قطاع</p>
+            </div>
+            <div class="examples-grid">
+                <div class="example-card reveal" onclick="openPolicy('banking')">
+                    <div class="example-header">
+                        <span class="icon">🏦</span>
+                        <h3>القطاع المصرفي والمالي</h3>
+                    </div>
+                    <div class="example-body">
+                        <ul>
+                            <li>سياسات متوافقة مع بنك الكويت المركزي</li>
+                            <li>حماية المعاملات المالية الإلكترونية</li>
+                            <li>أمان الخدمات المصرفية عبر الإنترنت</li>
+                            <li>الامتثال لمعايير PCI DSS و SWIFT</li>
+                            <li>حماية بيانات العملاء المالية</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="example-card reveal" onclick="openPolicy('healthcare')">
+                    <div class="example-header">
+                        <span class="icon">🏥</span>
+                        <h3>قطاع الرعاية الصحية</h3>
+                    </div>
+                    <div class="example-body">
+                        <ul>
+                            <li>حماية السجلات الطبية الإلكترونية</li>
+                            <li>أمان الأجهزة الطبية المتصلة</li>
+                            <li>خصوصية بيانات المرضى</li>
+                            <li>استمرارية الخدمات الصحية</li>
+                            <li>الامتثال للوائح الصحية</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="example-card reveal" onclick="openPolicy('government')">
+                    <div class="example-header">
+                        <span class="icon">🏛️</span>
+                        <h3>القطاع الحكومي</h3>
+                    </div>
+                    <div class="example-body">
+                        <ul>
+                            <li>حماية البنية التحتية الحرجة</li>
+                            <li>أمان الخدمات الحكومية الإلكترونية</li>
+                            <li>حماية البيانات السيادية</li>
+                            <li>الامتثال للتشريعات الوطنية</li>
+                            <li>تبادل المعلومات الآمن بين الجهات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section id="quickstart">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-tag">البدء السريع</div>
+                <h2 class="section-title">ابدأ في دقائق</h2>
+                <p class="section-subtitle">خطوات بسيطة لبدء استخدام السياسات في مؤسستك</p>
+            </div>
+            <div class="quickstart reveal">
+                <div class="quickstart-tabs">
+                    <button class="quickstart-tab active" onclick="switchTab(0)">📥 التثبيت</button>
+                    <button class="quickstart-tab" onclick="switchTab(1)">⚙️ التخصيص</button>
+                    <button class="quickstart-tab" onclick="switchTab(2)">🚀 التطبيق</button>
+                    <button class="quickstart-tab" onclick="switchTab(3)">📦 npm</button>
+                </div>
+                <div class="quickstart-panel active" id="panel0">
+                    <h3>تنزيل المستودع</h3>
+                    <p style="color: var(--text-secondary);">قم باستنساخ المستودع على جهازك للبدء فوراً</p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+<span class="comment"># استنساخ المستودع</span>
+git clone https://github.com/SiteQ8/arabic-infosec-policies.git
+
+<span class="comment"># الدخول للمجلد</span>
+<span class="keyword">cd</span> arabic-infosec-policies
+
+<span class="comment"># استعراض السياسات</span>
+<span class="keyword">ls</span> policies/
+                    </div>
+                </div>
+                <div class="quickstart-panel" id="panel1">
+                    <h3>تخصيص السياسات</h3>
+                    <p style="color: var(--text-secondary);">عدّل السياسات لتناسب مؤسستك</p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+<span class="comment"># استبدل اسم المؤسسة في جميع الملفات</span>
+<span class="keyword">find</span> policies/ -type f -name <span class="string">"*.md"</span> \
+  -exec sed -i <span class="string">'s/\[اسم المؤسسة\]/شركتك/g'</span> {} +
+
+<span class="comment"># أو استخدم أداة npm</span>
+npx arabic-infosec-policies customize \
+  --org <span class="string">"اسم مؤسستك"</span> \
+  --sector <span class="string">"banking"</span>
+                    </div>
+                </div>
+                <div class="quickstart-panel" id="panel2">
+                    <h3>خطة التطبيق المرحلية</h3>
+                    <p style="color: var(--text-secondary);">اتبع هذه الخطوات لتطبيق ناجح</p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+<span class="comment"># المرحلة 1: التقييم (الأسبوع 1-2)</span>
+→ مراجعة الوضع الحالي للأمن
+→ تحديد الفجوات الأمنية
+→ تحليل المخاطر
+
+<span class="comment"># المرحلة 2: التخصيص (الأسبوع 3-4)</span>
+→ تعديل السياسات حسب المؤسسة
+→ مراجعة الفريق القانوني
+→ موافقة الإدارة العليا
+
+<span class="comment"># المرحلة 3: التطبيق (الأسبوع 5-8)</span>
+→ تدريب الموظفين
+→ التطبيق المرحلي
+→ المراقبة والتحسين المستمر
+                    </div>
+                </div>
+                <div class="quickstart-panel" id="panel3">
+                    <h3>التثبيت عبر npm</h3>
+                    <p style="color: var(--text-secondary);">ثبّت الحزمة واستخدم أدوات سطر الأوامر</p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+<span class="comment"># التثبيت عالمياً</span>
+npm install -g arabic-infosec-policies
+
+<span class="comment"># أو محلياً في مشروعك</span>
+npm install arabic-infosec-policies
+
+<span class="comment"># عرض السياسات المتاحة</span>
+arabic-infosec list
+
+<span class="comment"># تصدير سياسة معينة</span>
+arabic-infosec export --policy comprehensive --format pdf
+
+<span class="comment"># تشغيل فحص الامتثال</span>
+arabic-infosec audit --standard iso27001
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section id="templates">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-tag">القوالب والأدوات</div>
+                <h2 class="section-title">قوالب جاهزة للاستخدام</h2>
+                <p class="section-subtitle">قوالب عملية تسهّل التطبيق الفوري للسياسات في مؤسستك</p>
+            </div>
+            <div class="policies-grid">
+                <div class="policy-card reveal" onclick="openPolicy('policy_template')">
+                    <div class="policy-icon gold">📝</div>
+                    <h3>قالب السياسة الأمنية</h3>
+                    <p>قالب شامل لإنشاء سياسة أمنية جديدة مع جميع الأقسام المطلوبة ونقاط التخصيص.</p>
+                    <div class="policy-tags">
+                        <span class="policy-tag">قالب</span>
+                        <span class="policy-tag">قابل للتخصيص</span>
+                    </div>
+                </div>
+                <div class="policy-card reveal" onclick="openPolicy('risk_assessment')">
+                    <div class="policy-icon cyan">📊</div>
+                    <h3>قالب تقييم المخاطر</h3>
+                    <p>جدول Excel متكامل لتقييم المخاطر الأمنية وتصنيفها وتحديد خطط المعالجة المناسبة.</p>
+                    <div class="policy-tags">
+                        <span class="policy-tag">Excel</span>
+                        <span class="policy-tag">تقييم المخاطر</span>
+                    </div>
+                </div>
+                <div class="policy-card reveal" onclick="openPolicy('compliance_checklist')">
+                    <div class="policy-icon emerald">✅</div>
+                    <h3>قائمة فحص الامتثال</h3>
+                    <p>قائمة تفصيلية للتحقق من الامتثال لجميع المعايير المدعومة مع تصنيف واضح.</p>
+                    <div class="policy-tags">
+                        <span class="policy-tag">فحص</span>
+                        <span class="policy-tag">امتثال</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-info">
+                <div class="shield" style="width:32px;height:32px">
+                    <svg viewBox="0 0 48 48" fill="none"><path d="M24 4L6 12v12c0 11 8 18 18 22 10-4 18-11 18-22V12L24 4z" stroke="#d4a843" stroke-width="2.5"/><path d="M20 24l4 4 8-8" stroke="#d4a843" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div>
+                    <div class="footer-text"><strong style="color:var(--accent-gold)">سياسات أمن المعلومات بالعربية</strong></div>
+                    <div class="footer-text">© 2025-2026 AlEnezi (SiteQ8) — مرخص تحت MIT License</div>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/SiteQ8/arabic-infosec-policies" target="_blank">GitHub</a>
+                <a href="https://github.com/SiteQ8/arabic-infosec-policies/issues" target="_blank">الإبلاغ عن مشكلة</a>
+                <a href="mailto:site@hotmail.com">تواصل معنا</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Policy Viewer Modal -->
+    <div class="modal-overlay" id="policyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">عنوان السياسة</h2>
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // === NAVBAR SCROLL EFFECT ===
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // === SCROLL REVEAL ===
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // === QUICKSTART TABS ===
+        function switchTab(index) {
+            document.querySelectorAll('.quickstart-tab').forEach((t, i) => t.classList.toggle('active', i === index));
+            document.querySelectorAll('.quickstart-panel').forEach((p, i) => p.classList.toggle('active', i === index));
+        }
+
+        // === COPY CODE ===
+        function copyCode(btn) {
+            const code = btn.parentElement.textContent.replace('نسخ', '').trim();
+            navigator.clipboard.writeText(code).then(() => {
+                btn.textContent = '✓ تم النسخ';
+                setTimeout(() => btn.textContent = 'نسخ', 2000);
+            });
+        }
+
+        // === SEARCH ===
+        const searchData = [
+            { title: 'السياسة الشاملة لأمن المعلومات', desc: 'سياسة رئيسية — 15 قسم — ISO 27001, NIST CSF', key: 'comprehensive', keywords: 'شاملة أمن معلومات سرية سلامة توافر أصول شبكات حوادث' },
+            { title: 'سياسة التحكم في الوصول', desc: 'إدارة الهوية والوصول — IAM, MFA, PAM', key: 'access_control', keywords: 'وصول هوية مصادقة تحقق كلمة مرور امتياز حساب' },
+            { title: 'سياسة حوكمة الذكاء الاصطناعي', desc: 'حوكمة AI — أخلاقيات — إدارة مخاطر', key: 'ai_governance', keywords: 'ذكاء اصطناعي حوكمة أخلاقيات نماذج تعلم آلي بيانات خوارزميات' },
+            { title: 'سياسة الثقة الصفرية', desc: 'Zero Trust — تقسيم دقيق — SASE', key: 'zero_trust', keywords: 'ثقة صفرية تحقق شبكة تقسيم حماية أجهزة بيانات' },
+            { title: 'القطاع المصرفي — مثال تطبيقي', desc: 'بنك الكويت المركزي — PCI DSS — SWIFT', key: 'banking', keywords: 'بنك مصرف مالي كويت بطاقات دفع تحويلات' },
+            { title: 'قطاع الرعاية الصحية — مثال تطبيقي', desc: 'سجلات طبية — أجهزة طبية — خصوصية', key: 'healthcare', keywords: 'صحة طبي مستشفى مريض سجلات أجهزة' },
+            { title: 'القطاع الحكومي — مثال تطبيقي', desc: 'بنية تحتية — خدمات إلكترونية — بيانات سيادية', key: 'government', keywords: 'حكومة حكومي خدمات إلكترونية بنية تحتية سيادي' },
+            { title: 'قالب السياسة الأمنية', desc: 'قالب جاهز — قابل للتخصيص', key: 'policy_template', keywords: 'قالب نموذج سياسة إنشاء جديد' },
+            { title: 'قالب تقييم المخاطر', desc: 'Excel — تقييم — تصنيف المخاطر', key: 'risk_assessment', keywords: 'مخاطر تقييم تحليل تصنيف معالجة' },
+            { title: 'قائمة فحص الامتثال', desc: 'فحص — امتثال — جميع المعايير', key: 'compliance_checklist', keywords: 'فحص امتثال تحقق معايير iso nist' },
+        ];
+
+        function handleSearch(query) {
+            const container = document.getElementById('searchResults');
+            container.innerHTML = '';
+            if (query.length < 2) return;
+
+            const q = query.toLowerCase();
+            const results = searchData.filter(item =>
+                item.title.includes(q) || item.desc.includes(q) || item.keywords.includes(q)
+            );
+
+            results.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'search-result-item visible';
+                div.innerHTML = `<h4>${item.title}</h4><p>${item.desc}</p>`;
+                div.onclick = () => openPolicy(item.key);
+                container.appendChild(div);
+            });
+        }
+
+        // === POLICY VIEWER ===
+        const policyFiles = {
+            comprehensive: { title: 'السياسة الشاملة لأمن المعلومات', file: 'policies/comprehensive_infosec_policy.md' },
+            access_control: { title: 'سياسة التحكم في الوصول', file: 'policies/access_control_policy.md' },
+            ai_governance: { title: 'سياسة حوكمة الذكاء الاصطناعي', file: 'policies/ai_governance_policy.md' },
+            zero_trust: { title: 'سياسة الثقة الصفرية', file: 'policies/zero_trust_policy.md' },
+            banking: { title: 'مثال القطاع المصرفي', file: 'examples/banking_example.md' },
+            healthcare: { title: 'مثال قطاع الرعاية الصحية', file: 'examples/healthcare_example.md' },
+            government: { title: 'مثال القطاع الحكومي', file: 'examples/government_example.md' },
+            policy_template: { title: 'قالب السياسة الأمنية', file: 'templates/policy_template.md' },
+            risk_assessment: { title: 'قالب تقييم المخاطر', file: 'templates/risk_assessment_template.xlsx' },
+            compliance_checklist: { title: 'قائمة فحص الامتثال', file: 'templates/compliance_checklist.md' },
+        };
+
+        function openPolicy(key) {
+            const policy = policyFiles[key];
+            if (!policy) return;
+
+            document.getElementById('modalTitle').textContent = policy.title;
+            const modal = document.getElementById('policyModal');
+            const body = document.getElementById('modalBody');
+
+            if (policy.file.endsWith('.xlsx')) {
+                body.innerHTML = `<p style="text-align:center;padding:3rem;color:var(--text-secondary);">
+                    <span style="font-size:3rem;">📊</span><br><br>
+                    هذا الملف بصيغة Excel.<br>
+                    <a href="${policy.file}" download style="color:var(--accent-gold);text-decoration:underline;">اضغط هنا لتنزيله</a>
+                </p>`;
+                modal.classList.add('show');
+                return;
+            }
+
+            body.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:2rem;">جارِ التحميل...</p>';
+            modal.classList.add('show');
+
+            fetch(policy.file)
+                .then(r => r.ok ? r.text() : Promise.reject())
+                .then(md => { body.innerHTML = renderMarkdown(md); })
+                .catch(() => { body.innerHTML = `<p style="color:var(--accent-red);text-align:center;padding:2rem;">
+                    تعذر تحميل الملف. <a href="${policy.file}" target="_blank" style="color:var(--accent-gold);">افتح مباشرة</a>
+                </p>`; });
+        }
+
+        function closeModal() {
+            document.getElementById('policyModal').classList.remove('show');
+        }
+        document.getElementById('policyModal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Simple markdown renderer
+        function renderMarkdown(md) {
+            return md
+                .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+                .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+                .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                .replace(/^- (.+)$/gm, '<li>$1</li>')
+                .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+                .replace(/^---$/gm, '<hr>')
+                .replace(/\n{2,}/g, '</p><p>')
+                .replace(/^(?!<[hluop])/gm, function(m) { return m ? '<p>' + m : m; });
+        }
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>

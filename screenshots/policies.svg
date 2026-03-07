@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e1a"/>
+      <stop offset="100%" style="stop-color:#111827"/>
+    </linearGradient>
+    <linearGradient id="gold2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d4a843"/>
+      <stop offset="100%" style="stop-color:#f0d078"/>
+    </linearGradient>
+    <linearGradient id="topbar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d4a843"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="650" fill="url(#bg2)"/>
+
+  <!-- Section Header -->
+  <text x="600" y="35" font-family="monospace" font-size="10" fill="#06b6d4" text-anchor="middle" letter-spacing="3">— السياسات الأساسية —</text>
+  <text x="600" y="70" font-family="Cairo, Arial" font-size="30" font-weight="800" fill="#f1f5f9" text-anchor="middle">سياسات شاملة جاهزة للتطبيق</text>
+  <text x="600" y="100" font-family="Tajawal, Arial" font-size="14" fill="#94a3b8" text-anchor="middle">أربع سياسات رئيسية تغطي جميع جوانب أمن المعلومات الحديثة</text>
+
+  <!-- Card 1: Comprehensive -->
+  <rect x="30" y="140" width="270" height="280" rx="16" fill="#1a2235" stroke="rgba(212,168,67,0.15)" stroke-width="1"/>
+  <rect x="30" y="140" width="270" height="3" rx="2" fill="url(#topbar)"/>
+  <rect x="55" y="170" width="52" height="52" rx="14" fill="rgba(212,168,67,0.12)"/>
+  <text x="81" y="204" font-size="24" text-anchor="middle">🔐</text>
+  <text x="55" y="252" font-family="Cairo, Arial" font-size="15" font-weight="700" fill="#f1f5f9">السياسة الشاملة لأمن المعلومات</text>
+  <text x="55" y="278" font-family="Tajawal, Arial" font-size="11" fill="#94a3b8">سياسة رئيسية تغطي 15 قسماً من ضوابط</text>
+  <text x="55" y="296" font-family="Tajawal, Arial" font-size="11" fill="#94a3b8">أمن المعلومات. تشمل إدارة الأصول</text>
+  <text x="55" y="314" font-family="Tajawal, Arial" font-size="11" fill="#94a3b8">والتحكم في الوصول وأمن الشبكات</text>
+  <rect x="55" y="340" width="70" height="22" rx="6" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.15)" stroke-width="0.5"/>
+  <text x="90" y="355" font-family="Cairo, Arial" font-size="9" font-weight="600" fill="#06b6d4" text-anchor="middle">ISO 27001</text>
+  <rect x="132" y="340" width="65" height="22" rx="6" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.15)" stroke-width="0.5"/>
+  <text x="164" y="355" font-family="Cairo, Arial" font-size="9" font-weight="600" fill="#06b6d4" text-anchor="middle">NIST CSF</text>
+  <rect x="204" y="340" width="55" height="22" rx="6" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.15)" stroke-width="0.5"/>
+  <text x="231" y="355" font-family="Cairo, Arial" font-size="9" font-weight="600" fill="#06b6d4" text-anchor="middle">15 قسم</text>
+
+  <!-- Card 2: Access Control -->
+  <rect x="320" y="140" width="270" height="280" rx="16" fill="#1a2235" stroke="rgba(212,168,67,0.15)" stroke-width="1"/>
+  <rect x="320" y="140" width="270" height="3" rx="2" fill="url(#topbar)"/>
+  <rect x="345" y="170" width="52" height="52" rx="14" fill="rgba(6,182,212,0.12)"/>
+  <text x="371" y="204" font-size="24" text-anchor="middle">🔑</text>
+  <text x="345" y="252" font-family="Cairo, Arial" font-size="15" font-weight="700" fill="#f1f5f9">سياسة التحكم في الوصول</text>
+  <text x="345" y="278" font-family="Tajawal, Arial" font-size="11" fill="#94a3b8">إدارة متقدمة للهوية والوصول تشمل</text>
+  <text x="345" y="296" font-family="Tajawal, Arial" font-size="11" fill="#94a3b8">المصادقة متعددة العوامل ومبدأ</text>
+  <text x="345" y="314" font-family="Tajawal, Arial" font-size="11" fill="#94a3b8">الامتياز الأقل وإدارة الحسابات</text>
+  <rect x="345" y="340" width="45" height="22" rx="6" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.15)" stroke-width="0.5"/>
+  <text x="367" y="355" font-family="Cairo, Arial" font-size="9" font-weight="600" fill="#06b6d4" text-anchor="middle">IAM</text>
+  <rect x="397" y="340" width="45" height="22" rx="6" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.15)" stroke-width="0.5"/>
+  <text x="419" y="355" font-family="Cairo, Arial" font-size="9" font-weight="600" fill="#06b6d4" text-anchor="middle">MFA</text>
+  <rect x="449" y="340" width="45" height="22" rx="6" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.15)" stroke-width="0.5"/>
+  <text x="471" y="355" font-family="Cairo, Arial" font-size="9" font-weight="600" fill="#06b6d4" text-anchor="middle">PAM</text>
+
+  <!-- Card 3: AI Governance -->
+  <rect x="610" y="140" width="270" height="280" rx="16" fill="#1a2235" stroke="rgba(212,168,67,0.15)" stroke-width="1"/>
+  <rect x="610" y="140" width="270" height="3" rx="2" fill="url(#topbar)"/>
+  <rect x="635" y="170" width="52" height="52" rx="14" fill="rgba(168,85,247,0.12)"/>
+  <text x="661" y="204" font-size="24" text-anchor="middle">🤖</text>
+  <text x="635" y="252" font-family="Cairo, Arial" font-size="15" font-weight="700" fill="#f1f5f9">سياسة حوكمة الذكاء الاصطناعي</text>
+  <text x="635" y="278" font-family="Tajawal, Arial" font-size="11" fill="#94a3b8">حوكمة شاملة لأنظمة الذكاء</text>
+  <text x="635" y="296" font-family="Tajawal, Arial" font-size="11" fill="#94a3b8">الاصطناعي تشمل إدارة المخاطر</text>
+  <text x="635" y="314" font-family="Tajawal, Arial" font-size="11" fill="#94a3b8">والمتطلبات الأخلاقية وحماية البيانات</text>
+  <rect x="635" y="340" width="65" height="22" rx="6" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.15)" stroke-width="0.5"/>
+  <text x="667" y="355" font-family="Cairo, Arial" font-size="9" font-weight="600" fill="#06b6d4" text-anchor="middle">AI Ethics</text>
+  <rect x="707" y="340" width="75" height="22" rx="6" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.15)" stroke-width="0.5"/>
+  <text x="744" y="355" font-family="Cairo, Arial" font-size="9" font-weight="600" fill="#06b6d4" text-anchor="middle">ML Security</text>
+
+  <!-- Card 4: Zero Trust -->
+  <rect x="900" y="140" width="270" height="280" rx="16" fill="#1a2235" stroke="rgba(212,168,67,0.15)" stroke-width="1"/>
+  <rect x="900" y="140" width="270" height="3" rx="2" fill="url(#topbar)"/>
+  <rect x="925" y="170" width="52" height="52" rx="14" fill="rgba(16,185,129,0.12)"/>
+  <text x="951" y="204" font-size="24" text-anchor="middle">🛡️</text>
+  <text x="925" y="252" font-family="Cairo, Arial" font-size="15" font-weight="700" fill="#f1f5f9">سياسة الثقة الصفرية</text>
+  <text x="925" y="278" font-family="Tajawal, Arial" font-size="11" fill="#94a3b8">تطبيق نموذج Zero Trust الشامل</text>
+  <text x="925" y="296" font-family="Tajawal, Arial" font-size="11" fill="#94a3b8">يشمل التحقق المستمر وتقسيم</text>
+  <text x="925" y="314" font-family="Tajawal, Arial" font-size="11" fill="#94a3b8">الشبكات الدقيق وأمان الأجهزة</text>
+  <rect x="925" y="340" width="70" height="22" rx="6" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.15)" stroke-width="0.5"/>
+  <text x="960" y="355" font-family="Cairo, Arial" font-size="9" font-weight="600" fill="#06b6d4" text-anchor="middle">Zero Trust</text>
+  <rect x="1002" y="340" width="55" height="22" rx="6" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.15)" stroke-width="0.5"/>
+  <text x="1029" y="355" font-family="Cairo, Arial" font-size="9" font-weight="600" fill="#06b6d4" text-anchor="middle">SASE</text>
+
+  <!-- Features row -->
+  <rect x="30" y="460" width="370" height="160" rx="16" fill="#1a2235" stroke="rgba(212,168,67,0.15)" stroke-width="1"/>
+  <text x="215" y="530" font-family="Cairo, Arial" font-size="40" font-weight="900" fill="url(#gold2)" text-anchor="middle">%100</text>
+  <text x="215" y="560" font-family="Tajawal, Arial" font-size="13" fill="#94a3b8" text-anchor="middle">عربي بالكامل مع مصطلحات تقنية دقيقة</text>
+
+  <rect x="420" y="460" width="370" height="160" rx="16" fill="#1a2235" stroke="rgba(212,168,67,0.15)" stroke-width="1"/>
+  <text x="605" y="530" font-family="Cairo, Arial" font-size="40" font-weight="900" fill="url(#gold2)" text-anchor="middle">+8</text>
+  <text x="605" y="560" font-family="Tajawal, Arial" font-size="13" fill="#94a3b8" text-anchor="middle">أطر ومعايير عالمية مدعومة</text>
+
+  <rect x="810" y="460" width="370" height="160" rx="16" fill="#1a2235" stroke="rgba(212,168,67,0.15)" stroke-width="1"/>
+  <text x="995" y="530" font-family="Cairo, Arial" font-size="40" font-weight="900" fill="url(#gold2)" text-anchor="middle">MIT</text>
+  <text x="995" y="560" font-family="Tajawal, Arial" font-size="13" fill="#94a3b8" text-anchor="middle">ترخيص مفتوح — استخدم وعدّل بحرية</text>
+</svg>

@@ -1,0 +1,60 @@
+{
+  "name": "arabic-infosec-policies",
+  "version": "2.0.0",
+  "description": "أكبر مجموعة مفتوحة المصدر من سياسات أمن المعلومات باللغة العربية — Arabic Information Security Policies",
+  "main": "src/index.js",
+  "bin": {
+    "arabic-infosec": "src/cli.js"
+  },
+  "scripts": {
+    "start": "node src/cli.js",
+    "list": "node src/cli.js list",
+    "audit": "node src/cli.js audit",
+    "export": "node src/cli.js export",
+    "test": "node src/test.js"
+  },
+  "keywords": [
+    "arabic",
+    "infosec",
+    "information-security",
+    "cybersecurity",
+    "policies",
+    "iso27001",
+    "nist",
+    "zero-trust",
+    "ai-governance",
+    "compliance",
+    "arabic-security",
+    "security-policies",
+    "kuwait",
+    "middle-east",
+    "cyber-resilience",
+    "risk-management",
+    "pci-dss",
+    "cis-controls",
+    "أمن-المعلومات",
+    "سياسات-أمنية"
+  ],
+  "author": "AlEnezi (SiteQ8) <site@hotmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiteQ8/arabic-infosec-policies.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SiteQ8/arabic-infosec-policies/issues"
+  },
+  "homepage": "https://siteq8.github.io/arabic-infosec-policies",
+  "files": [
+    "src/",
+    "policies/",
+    "templates/",
+    "examples/",
+    "docs/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

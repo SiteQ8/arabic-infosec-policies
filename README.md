@@ -1,253 +1,299 @@
+<div align="center">
 
-# سياسات أمن المعلومات بالعربية - Arabic Information Security Policies
+# 🛡️ سياسات أمن المعلومات بالعربية
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Version](https://img.shields.io/badge/version-1.0-green.svg)
-![Language](https://img.shields.io/badge/language-Arabic-red.svg)
+### Arabic Information Security Policies
 
-## نظرة عامة / Overview
+**أكبر مجموعة مفتوحة المصدر من سياسات أمن المعلومات باللغة العربية**
 
-مجموعة شاملة من سياسات أمن المعلومات باللغة العربية وفقاً لأحدث المعايير والأطر العالمية لعام 2025، هذه السياسات قابلة للتخصيص والتطبيق في أي مؤسسة عربية.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/الإصدار-2.0-gold.svg)](#)
+[![Language](https://img.shields.io/badge/اللغة-العربية-green.svg)](#)
+[![Node](https://img.shields.io/badge/Node.js-16%2B-339933.svg)](#)
+[![PRs Welcome](https://img.shields.io/badge/PRs-مرحب_بها-brightgreen.svg)](CONTRIBUTING.md)
+[![GitHub Pages](https://img.shields.io/badge/الموقع-GitHub_Pages-222.svg)](https://siteq8.github.io/arabic-infosec-policies)
 
-A collection of information security policies in Arabic, developed according to the latest global standards for 2025. These policies are customizable and applicable for any Arabic organization.
+<br>
 
-## 📋 المحتويات / Contents
+[**🌐 الموقع التفاعلي**](https://siteq8.github.io/arabic-infosec-policies) · [**📋 السياسات**](#-السياسات-الأساسية) · [**🚀 البدء السريع**](#-البدء-السريع) · [**📦 npm**](#-التثبيت-عبر-npm) · [**🤝 المساهمة**](CONTRIBUTING.md)
 
-### السياسات الأساسية / Core Policies
+<br>
 
-1. **[السياسة الشاملة للأمن المعلومات](./policies/comprehensive_infosec_policy.md)**
-   - سياسة رئيسية تغطي جميع جوانب أمن المعلومات
-   - تشمل 15 قسماً رئيسياً مع ملاحق شاملة
+</div>
 
-2. **[سياسة التحكم في الوصول](./policies/access_control_policy.md)**
-   - إدارة هوية المستخدمين والمصادقة
-   - ضوابط التخويل والوصول المتقدم
+---
 
-3. **[سياسة حوكمة الذكاء الاصطناعي](./policies/ai_governance_policy.md)**
-   - حوكمة وأمان أنظمة الذكاء الاصطناعي
-   - إدارة المخاطر والأخلاقيات
+## 📸 لقطات الشاشة
 
-4. **[سياسة الثقة الصفرية (Zero Trust)](./policies/zero_trust_policy.md)**
-   - تطبيق نموذج الثقة الصفرية الشامل
-   - أمان متقدم للشبكات والبيانات
+### الصفحة الرئيسية
+<div align="center">
+<img src="screenshots/hero.svg" alt="الصفحة الرئيسية — Arabic InfoSec Policies" width="100%">
+</div>
 
-## 🎯 الهدف / Purpose
+### استعراض السياسات
+<div align="center">
+<img src="screenshots/policies.svg" alt="استعراض السياسات الأساسية" width="100%">
+</div>
 
-**الهدف الرئيسي:** توفير سياسات لأمن المعلومات جاهزة للاستخدام باللغة العربية تتوافق مع:
-- **NIST Cybersecurity Framework 2.0**
-- **ISO/IEC 27001:2022**
-- **CIS Controls v8**
-- **Zero Trust Architecture**
-- **AI Governance Frameworks**
-- **Central Bank Of Kuwait**
-- **PCI DSS**
-- **SWIFT CSP**
+### أداة سطر الأوامر (CLI)
+<div align="center">
+<img src="screenshots/cli.svg" alt="أداة سطر الأوامر" width="100%">
+</div>
 
+---
 
-## 🏢 الجمهور المستهدف / Target Audience
+## 🎯 نظرة عامة
 
-- **المؤسسات الحكومية** العربية
-- **القطاع المصرفي والمالي**
-- **الشركات الخاصة** من جميع الأحجام
-- **مؤسسات الرعاية الصحية**
-- **المؤسسات التعليمية**
-- **قطاع الاتصالات وتقنية المعلومات**
+مجموعة شاملة ومتكاملة من سياسات أمن المعلومات باللغة العربية، مصممة وفقاً لأحدث المعايير والأطر العالمية لعام 2025-2026. هذه السياسات قابلة للتخصيص والتطبيق الفوري في أي مؤسسة عربية — سواء كانت حكومية، مصرفية، صحية، أو خاصة.
 
-## 🚀 كيفية الاستخدام / How to Use
+### لماذا هذا المشروع؟
 
-### 1. التقييم الأولي / Initial Assessment
+- **🇰🇼 عربي 100%** — مصطلحات تقنية دقيقة ومراجعة لغوية شاملة
+- **📐 متوافق مع 8+ معايير** — ISO 27001, NIST, CIS, Zero Trust, وأكثر
+- **🔓 مفتوح المصدر** — ترخيص MIT، استخدم وعدّل بحرية تامة
+- **⚡ جاهز للتطبيق** — قوالب وأمثلة قطاعية جاهزة فوراً
+- **🤖 يشمل حوكمة AI** — سياسة متقدمة لحوكمة الذكاء الاصطناعي
+- **🌐 موقع تفاعلي** — استعرض وابحث عبر GitHub Pages
+- **📦 حزمة npm** — أداة CLI لإدارة السياسات برمجياً
+
+---
+
+## 📋 السياسات الأساسية
+
+| # | السياسة | الوصف | المعايير |
+|---|---------|-------|----------|
+| 🔐 | [**السياسة الشاملة لأمن المعلومات**](./policies/comprehensive_infosec_policy.md) | 15 قسم يغطي جميع جوانب أمن المعلومات | ISO 27001, NIST CSF, CIS |
+| 🔑 | [**سياسة التحكم في الوصول**](./policies/access_control_policy.md) | إدارة الهوية، MFA، الامتياز الأقل، PAM | ISO 27001, NIST, ZTA |
+| 🤖 | [**سياسة حوكمة الذكاء الاصطناعي**](./policies/ai_governance_policy.md) | حوكمة AI، أخلاقيات، إدارة المخاطر | NIST AI RMF, EU AI Act |
+| 🛡️ | [**سياسة الثقة الصفرية**](./policies/zero_trust_policy.md) | Zero Trust، تقسيم دقيق، SASE | NIST 800-207, CISA ZTA |
+
+---
+
+## ✅ مصفوفة الامتثال
+
+| المعيار | التغطية | الحالة |
+|---------|---------|--------|
+| ISO/IEC 27001:2022 | █████████████████████ 100% | ✅ مكتملة |
+| NIST CSF 2.0 | █████████████████████ 100% | ✅ مكتملة |
+| CIS Controls v8 | ████████████████████░ 95% | ✅ مكتملة |
+| Zero Trust Architecture | █████████████████████ 100% | ✅ مكتملة |
+| AI Governance | █████████████████████ 100% | ✅ مكتملة |
+| GDPR | ██████████████████░░░ 90% | ⚠️ جزئية |
+| PCI DSS | █████████████░░░░░░░░ 65% | ⚠️ جزئية |
+| بنك الكويت المركزي (CBK) | ████████████░░░░░░░░░ 60% | ⚠️ جزئية |
+| SWIFT CSP | ██████░░░░░░░░░░░░░░░ 30% | ⚠️ جزئية |
+
+---
+
+## 🚀 البدء السريع
+
+### 1. الاستنساخ
 ```bash
-# قم بمراجعة الوضع الحالي لمؤسستك
-- تحديد الفجوات الأمنية الحالية
-- تقييم المتطلبات التنظيمية
-- تحليل المخاطر والتهديدات
+git clone https://github.com/SiteQ8/arabic-infosec-policies.git
+cd arabic-infosec-policies
 ```
 
-### 2. التخصيص / Customization
+### 2. التخصيص
 ```bash
-# عدل السياسات حسب احتياجات مؤسستك
-- استبدل [اسم المؤسسة] باسم مؤسستك
-- حدث المعلومات التنظيمية
-- أضف أو احذف الأقسام حسب الحاجة
+# استبدل اسم المؤسسة في جميع الملفات
+find policies/ -type f -name "*.md" \
+  -exec sed -i 's/\[اسم المؤسسة\]/اسم شركتك/g' {} +
 ```
 
-### 3. التطبيق / Implementation
+### 3. التطبيق
+```
+المرحلة 1 (الأسبوع 1-2): التقييم → مراجعة الوضع الحالي وتحديد الفجوات
+المرحلة 2 (الأسبوع 3-4): التخصيص → تعديل السياسات ومراجعة الفريق القانوني
+المرحلة 3 (الأسبوع 5-8): التطبيق → تدريب الموظفين والتطبيق المرحلي
+```
+
+---
+
+## 📦 التثبيت عبر npm
+
 ```bash
-# اتبع خطة التطبيق المرحلية
-- ابدأ بالسياسة الشاملة
-- طبق السياسات المتخصصة تدريجياً
-- درب الموظفين على السياسات الجديدة
+# التثبيت عالمياً
+npm install -g arabic-infosec-policies
+
+# عرض جميع السياسات
+arabic-infosec list
+
+# فحص الامتثال
+arabic-infosec audit
+
+# فحص معيار محدد
+arabic-infosec audit --standard iso27001
+
+# تصدير سياسة
+arabic-infosec export --policy comprehensive
+
+# تخصيص السياسات لمؤسستك
+arabic-infosec customize --org "اسم المؤسسة" --sector banking
+
+# إحصائيات المستودع
+arabic-infosec stats
 ```
 
-## 📁 هيكل المستودع / Repository Structure
+### الاستخدام البرمجي
+```javascript
+const { getPolicy, listPolicies, customizePolicy } = require('arabic-infosec-policies');
+
+// عرض جميع السياسات
+const policies = listPolicies();
+
+// قراءة سياسة معينة
+const policy = getPolicy('comprehensive');
+console.log(policy.content);
+
+// تخصيص سياسة لمؤسستك
+const customized = customizePolicy('comprehensive', {
+  orgName: 'شركتي'
+});
+```
+
+---
+
+## 🌐 الموقع التفاعلي
+
+يمكنك تصفح جميع السياسات عبر الموقع التفاعلي المتاح على GitHub Pages:
+
+**🔗 [https://siteq8.github.io/arabic-infosec-policies](https://siteq8.github.io/arabic-infosec-policies)**
+
+يشمل الموقع:
+- استعراض تفاعلي لجميع السياسات والقوالب
+- بحث فوري في جميع المحتويات
+- مصفوفة الامتثال التفاعلية
+- دليل البدء السريع مع أمثلة كود
+- تصميم حديث يدعم العربية (RTL) بالكامل
+
+---
+
+## 📁 هيكل المستودع
 
 ```
-📁 arabic-infosec-policies/
+arabic-infosec-policies/
+├── 🌐 index.html                    ← الموقع التفاعلي (GitHub Pages)
+├── 📦 package.json                   ← حزمة npm
 ├── 📄 README.md
 ├── 📄 LICENSE
+├── 📄 SECURITY.md
+├── 📄 CONTRIBUTING.md
+├── 📄 CODE_OF_CONDUCT.md
+├── 📁 src/
+│   ├── cli.js                        ← أداة سطر الأوامر
+│   ├── index.js                      ← API البرمجي
+│   └── test.js                       ← الاختبارات
 ├── 📁 policies/
-│   ├── 📄 comprehensive_infosec_policy.md
-│   ├── 📄 access_control_policy.md
-│   ├── 📄 ai_governance_policy.md
-│   └── 📄 zero_trust_policy.md
+│   ├── comprehensive_infosec_policy.md
+│   ├── access_control_policy.md
+│   ├── ai_governance_policy.md
+│   └── zero_trust_policy.md
 ├── 📁 templates/
-│   ├── 📄 policy_template.md
-│   ├── 📄 risk_assessment_template.xlsx
-│   └── 📄 compliance_checklist.md
+│   ├── policy_template.md
+│   ├── risk_assessment_template.xlsx
+│   └── compliance_checklist.md
 ├── 📁 docs/
-│   ├── 📄 implementation_guide.md
-│   ├── 📄 customization_guide.md
-│   └── 📄 compliance_mapping.md
-└── 📁 examples/
-    ├── 📄 banking_sector_example.md
-    ├── 📄 healthcare_example.md
-    └── 📄 government_example.md
+│   ├── implementation_guide.md
+│   ├── customization_guide.md
+│   └── compliance_mapping.md
+├── 📁 examples/
+│   ├── banking_example.md
+│   ├── healthcare_example.md
+│   └── government_example.md
+├── 📁 screenshots/
+│   ├── hero.svg
+│   ├── policies.svg
+│   └── cli.svg
+└── 📁 .github/
+    └── workflows/
+        └── ci.yml                    ← CI/CD + GitHub Pages
 ```
 
-## ✅ المعايير المدعومة / Supported Standards
+---
 
-| المعيار / Standard | التغطية / Coverage | الحالة / Status |
-|-------------------|-------------------|-----------------|
-| ISO/IEC 27001:2022 | 100% | ✅ مكتملة |
-| NIST CSF 2.0 | 100% | ✅ مكتملة |
-| CIS Controls v8 | 95% | ✅ مكتملة |
-| Zero Trust | 100% | ✅ مكتملة |
-| AI Governance | 100% | ✅ مكتملة |
-| GDPR | 90% | ⚠️ جزئية |
-| SOC 2 | 85% | ⚠️ جزئية |
-| CBK | 60% | ⚠️ جزئية |
-| PCI DSS | 65% | ⚠️ جزئية |
-| SWIFT CSP | 30% | ⚠️ جزئية |
+## 🏢 أمثلة قطاعية
 
+| القطاع | الملف | يشمل |
+|--------|-------|------|
+| 🏦 [المصرفي](./examples/banking_example.md) | `banking_example.md` | CBK, PCI DSS, SWIFT, حماية المعاملات |
+| 🏥 [الصحي](./examples/healthcare_example.md) | `healthcare_example.md` | سجلات طبية، أجهزة متصلة، خصوصية |
+| 🏛️ [الحكومي](./examples/government_example.md) | `government_example.md` | بنية تحتية، خدمات إلكترونية، بيانات سيادية |
 
+---
 
+## 📝 القوالب
 
-## 🔄 دورة التحديث / Update Cycle
+| القالب | الوصف |
+|--------|-------|
+| [قالب السياسة الأمنية](./templates/policy_template.md) | قالب شامل لإنشاء سياسة أمنية جديدة |
+| [قالب تقييم المخاطر](./templates/risk_assessment_template.xlsx) | جدول Excel لتقييم وتصنيف المخاطر |
+| [قائمة فحص الامتثال](./templates/compliance_checklist.md) | قائمة تفصيلية للتحقق من الامتثال |
 
-- **مراجعة ربع سنوية** للتطورات التقنية والتنظيمية
-- **تحديث سنوي رئيسي** لمواكبة المعايير الجديدة
-- **تحديثات طارئة** عند ظهور تهديدات أو متطلبات جديدة
+---
 
-## 🤝 المساهمة / Contributing
+## 📚 الوثائق
 
-نرحب بمساهماتكم في تحسين وتطوير هذه السياسات:
+| الوثيقة | الوصف |
+|---------|-------|
+| [دليل التطبيق](./docs/implementation_guide.md) | خطة مرحلية كاملة لتطبيق السياسات |
+| [دليل التخصيص](./docs/customization_guide.md) | كيفية تعديل السياسات لمؤسستك |
+| [خريطة الامتثال](./docs/compliance_mapping.md) | ربط السياسات بالمعايير العالمية |
 
-### كيفية المساهمة:
-1. **Fork** المستودع
-2. إنشاء **branch** جديد للتغييرات
-3. **Commit** التغييرات مع وصف واضح
-4. إنشاء **Pull Request**
+---
+
+## 🤝 المساهمة
+
+نرحب بمساهماتكم! راجع [دليل المساهمة](CONTRIBUTING.md) للتفاصيل.
+
+```bash
+# 1. Fork المستودع
+# 2. أنشئ branch جديد
+git checkout -b feature/اسم-الميزة
+
+# 3. أضف تغييراتك
+git commit -m "إضافة: وصف التغيير"
+
+# 4. ارفع التغييرات
+git push origin feature/اسم-الميزة
+
+# 5. افتح Pull Request
+```
 
 ### أنواع المساهمات المطلوبة:
-- تحسينات على النصوص والترجمات
-- إضافة أمثلة لقطاعات جديدة
-- تحديث المراجع والمعايير
-- إصلاح الأخطاء اللغوية أو التقنية
+- تحسينات على النصوص والمصطلحات التقنية
+- إضافة أمثلة لقطاعات جديدة (تعليم، اتصالات، نفط وغاز)
+- تحسين تغطية المعايير (CBK, PCI DSS, SWIFT)
+- ترجمة الوثائق التكميلية
+- تحسينات على الموقع التفاعلي وأداة CLI
 
-## 📞 الدعم والاستفسارات / Support & Questions
+---
 
-للحصول على الدعم أو طرح الاستفسارات:
-- **GitHub Issues:** لطرح المشاكل التقنية
-- **GitHub Discussions:** للنقاش العام والاستفسارات
-- **Email:** [site@hotmail.com]
+## 🔒 الأمان
 
-## 📋 قائمة المراجعة / Checklist
+للإبلاغ عن ثغرة أمنية، راجع [SECURITY.md](SECURITY.md).
 
-### قبل التطبيق / Before Implementation
-- [ ] مراجعة جميع السياسات
-- [ ] تخصيص المحتوى لمؤسستك
-- [ ] موافقة الإدارة العليا
-- [ ] تدريب الفرق المسؤولة
+---
 
-### أثناء التطبيق / During Implementation
-- [ ] تطبيق مرحلي للسياسات
-- [ ] تدريب جميع الموظفين
-- [ ] مراقبة الامتثال
-- [ ] جمع التغذية الراجعة
+## 📄 الترخيص
 
-### بعد التطبيق / After Implementation
-- [ ] تقييم الفعالية
-- [ ] تحديث حسب الحاجة
-- [ ] مراجعة دورية
-- [ ] تحسين مستمر
+مرخص تحت [MIT License](LICENSE) — استخدم، عدّل، ووزّع بحرية تامة.
 
-## 🏆 أفضل الممارسات / Best Practices
+---
 
-### للمؤسسات الصغيرة:
-- ابدأ بالسياسة الشاملة فقط
-- ركز على الضوابط الأساسية
-- استخدم حلول مجانية ومفتوحة المصدر
+## 📞 التواصل
 
-### للمؤسسات المتوسطة:
-- طبق جميع السياسات تدريجياً
-- استثمر في أدوات أمان متوسطة
-- أنشئ فريق أمان مختص
-
-### للمؤسسات الكبيرة:
-- طبق جميع السياسات بالكامل
-- استخدم أحدث التقنيات والأدوات
-- أنشئ مركز عمليات أمان (SOC)
-
-## 📊 إحصائيات الاستخدام / Usage Statistics
-
-- **عدد التنزيلات:** 500+ منذ الإصدار
-- **عدد المؤسسات المطبقة:** 50+ مؤسسة
-- **التقييم:** ⭐⭐⭐⭐⭐ (4.8/5)
-- **معدل الرضا:** 95%
-
-## 🔗 روابط مفيدة / Useful Links
-
-### مراجع ومصادر:
-- [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
-- [ISO 27001 Official Site](https://www.iso.org/isoiec-27001-information-security.html)
-- [CIS Controls](https://www.cisecurity.org/controls)
-- [SANS Institute](https://www.sans.org/)
-
-### أدوات مساعدة:
-- [Risk Assessment Tools](./tools/risk-assessment.md) **pending**
-- [Compliance Checklists](./tools/compliance.md) **pending**
-- [Training Materials](./tools/training.md) **pending**
-
-## 📄 الترخيص / License
-
-هذا المشروع مرخص تحت [MIT License](LICENSE) - راجع ملف الترخيص للتفاصيل.
-
-```
-MIT License
-
-Copyright (c) 2025 Arabic Information Security Policies
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-```
-
-## 📞 اتصل بنا / Contact Us
-
-- **GitHub:** [@arabic-infosec-policies](https://github.com/arabic-infosec-policies)
+- **GitHub:** [@SiteQ8](https://github.com/SiteQ8)
 - **البريد الإلكتروني:** site@hotmail.com
+- **المشاكل التقنية:** [GitHub Issues](https://github.com/SiteQ8/arabic-infosec-policies/issues)
 
 ---
 
-## 🙏 شكر وتقدير / Acknowledgments
+<div align="center">
 
-نتقدم بالشكر للجهات والأشخاص التالية لمساهمتهم في هذا المشروع:
+**صنع بـ ❤️ في الكويت 🇰🇼**
 
-- **خبراء الأمن السيبراني** في المنطقة العربية
-- **المؤسسات الأكاديمية** المتخصصة في أمن المعلومات
-- **مجتمع الأمن السيبراني** العربي
-- **جميع المساهمين** في تطوير وتحسين المحتوى
+بواسطة [AlEnezi (SiteQ8)](https://github.com/SiteQ8)
 
----
+آخر تحديث: مارس 2026 | الإصدار: 2.0
 
-**آخر تحديث:** أكتوبر 2025  
-**الإصدار:** 1.0  
-**الحالة:** مستقر ومُختبر
-
-**© 2025 Arabic Information Security Policies. جميع الحقوق محفوظة.**
+</div>

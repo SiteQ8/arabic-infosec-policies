@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="550" viewBox="0 0 900 550">
+  <defs>
+    <linearGradient id="tbg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1b26"/>
+      <stop offset="100%" style="stop-color:#16161e"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Terminal window -->
+  <rect width="900" height="550" rx="12" fill="url(#tbg)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  
+  <!-- Title bar -->
+  <rect x="0" y="0" width="900" height="40" rx="12" fill="#24283b"/>
+  <rect x="0" y="28" width="900" height="12" fill="#24283b"/>
+  <circle cx="20" cy="20" r="6" fill="#ff5f57"/>
+  <circle cx="40" cy="20" r="6" fill="#febc2e"/>
+  <circle cx="60" cy="20" r="6" fill="#28c840"/>
+  <text x="450" y="25" font-family="monospace" font-size="12" fill="#565f89" text-anchor="middle">arabic-infosec — zsh</text>
+
+  <!-- Terminal content -->
+  <text x="20" y="70" font-family="monospace" font-size="13" fill="#7aa2f7">$ arabic-infosec list</text>
+  
+  <!-- Banner -->
+  <text x="20" y="100" font-family="monospace" font-size="11" fill="#e0af68">    ╔══════════════════════════════════════════════════════╗</text>
+  <text x="20" y="116" font-family="monospace" font-size="11" fill="#e0af68">    ║   🛡️  سياسات أمن المعلومات بالعربية  🛡️              ║</text>
+  <text x="20" y="132" font-family="monospace" font-size="11" fill="#e0af68">    ║   Arabic InfoSec Policies v2.0                       ║</text>
+  <text x="20" y="148" font-family="monospace" font-size="11" fill="#e0af68">    ╚══════════════════════════════════════════════════════╝</text>
+
+  <!-- Policies -->
+  <text x="20" y="180" font-family="monospace" font-size="12" fill="#e0af68" font-weight="bold">📋 السياسات الأساسية (4)</text>
+  
+  <text x="30" y="208" font-family="monospace" font-size="12" fill="#7dcfff">  1.</text>
+  <text x="65" y="208" font-family="monospace" font-size="12" fill="#c0caf5" font-weight="bold">السياسة الشاملة لأمن المعلومات</text>
+  <text x="45" y="224" font-family="monospace" font-size="10" fill="#565f89">     ID: comprehensive | 15 قسم | Comprehensive InfoSec Policy</text>
+  <text x="45" y="238" font-family="monospace" font-size="10" fill="#565f89">     المعايير: ISO 27001:2022, NIST CSF 2.0, CIS Controls v8</text>
+  
+  <text x="30" y="262" font-family="monospace" font-size="12" fill="#7dcfff">  2.</text>
+  <text x="65" y="262" font-family="monospace" font-size="12" fill="#c0caf5" font-weight="bold">سياسة التحكم في الوصول</text>
+  <text x="45" y="278" font-family="monospace" font-size="10" fill="#565f89">     ID: access_control | 10 قسم | Access Control Policy</text>
+  <text x="45" y="292" font-family="monospace" font-size="10" fill="#565f89">     المعايير: ISO 27001, NIST, Zero Trust</text>
+  
+  <text x="30" y="316" font-family="monospace" font-size="12" fill="#7dcfff">  3.</text>
+  <text x="65" y="316" font-family="monospace" font-size="12" fill="#c0caf5" font-weight="bold">سياسة حوكمة الذكاء الاصطناعي</text>
+  <text x="45" y="332" font-family="monospace" font-size="10" fill="#565f89">     ID: ai_governance | 12 قسم | AI Governance Policy</text>
+  <text x="45" y="346" font-family="monospace" font-size="10" fill="#565f89">     المعايير: NIST AI RMF, EU AI Act, ISO 42001</text>
+  
+  <text x="30" y="370" font-family="monospace" font-size="12" fill="#7dcfff">  4.</text>
+  <text x="65" y="370" font-family="monospace" font-size="12" fill="#c0caf5" font-weight="bold">سياسة الثقة الصفرية</text>
+  <text x="45" y="386" font-family="monospace" font-size="10" fill="#565f89">     ID: zero_trust | 14 قسم | Zero Trust Policy</text>
+  <text x="45" y="400" font-family="monospace" font-size="10" fill="#565f89">     المعايير: NIST SP 800-207, CISA ZTA, Forrester ZTX</text>
+
+  <!-- Divider -->
+  <text x="20" y="420" font-family="monospace" font-size="10" fill="#3b4261">────────────────────────────────────────────────────────────</text>
+
+  <!-- Templates -->
+  <text x="20" y="445" font-family="monospace" font-size="12" fill="#e0af68" font-weight="bold">📝 القوالب (3)</text>
+  <text x="30" y="468" font-family="monospace" font-size="12" fill="#7dcfff">  1.</text>
+  <text x="65" y="468" font-family="monospace" font-size="12" fill="#c0caf5" font-weight="bold">قالب السياسة الأمنية</text>
+  <text x="30" y="488" font-family="monospace" font-size="12" fill="#7dcfff">  2.</text>
+  <text x="65" y="488" font-family="monospace" font-size="12" fill="#c0caf5" font-weight="bold">قالب تقييم المخاطر</text>
+  <text x="30" y="508" font-family="monospace" font-size="12" fill="#7dcfff">  3.</text>
+  <text x="65" y="508" font-family="monospace" font-size="12" fill="#c0caf5" font-weight="bold">قائمة فحص الامتثال</text>
+
+  <!-- Cursor -->
+  <rect x="20" y="530" width="8" height="14" fill="#7aa2f7" opacity="0.8"/>
+</svg>
